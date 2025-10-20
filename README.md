@@ -7,7 +7,6 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Live-brightgreen?style=flat-square"/>
-  <img src="https://img.shields.io/github/license/atuli93/sentient-website?style=flat-square"/>
   <img src="https://img.shields.io/github/last-commit/atuli93/sentient-website?style=flat-square"/>
 </p>
 
