@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentient AGI</title>
+
+  <link rel="shortcut icon" href="./assets/images/icon.png" type="image/x-icon">
+
+  <!-- External Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- External Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+
+  <!-- Floating Chatbot -->
+  <div id="chat-toggle-button" onclick="toggleChat()">
+    <svg id="chat-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+      viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.5 8.25-9 8.25S3 16.556 3 12 7.5 3.75 12 3.75s9 3.694 9 8.25z" />
+    </svg>
+    <svg id="close-icon" class="hidden w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+      viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </div>
+
+  <div id="chatbot-container" class="chat-container">
+    <header class="bg-indigo-600 p-3 text-white text-center rounded-t-lg">
+      <h1 class="text-lg font-bold">Sentient AI Assistant</h1>
+    </header>
+
+    <div id="chat-messages" class="flex flex-col space-y-3">
+      <div class="bot-message shadow-sm">
+        Hello! I'm your AI assistant for Sentient. Ask me about 𝐃𝐞𝐜𝐞𝐧𝐭𝐫𝐚𝐥𝐢𝐳𝐞𝐝 𝐀𝐆𝐈, the 𝐁𝐮𝐢𝐥𝐝𝐞𝐫 𝐏𝐫𝐨𝐠𝐫𝐚𝐦, or anything you'd like to learn.
+      </div>
+    </div>
+
+    <div id="chat-loading-indicator">
+      <svg class="animate-spin -ml-1 mr-3 h-4 w-4 text-indigo-600 inline-block" xmlns="http://www.w3.org/2000/svg"
+        fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      Thinking...
+    </div>
+
+    <div class="p-3 border-t border-gray-200">
+      <div class="flex space-x-2">
+        <input type="text" id="user-input" placeholder="Ask a question..."
+          class="flex-grow p-2 border border-gray-300 rounded-lg text-sm focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
+          onkeydown="if(event.key === 'Enter') sendMessage()">
+        <button id="send-button" onclick="sendMessage()"
+          class="bg-indigo-600 text-white p-2 rounded-lg hover:bg-indigo-700 transition duration-150 shadow-md active:scale-95 transform">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loader -->
+  <div id="loader">
+    <h1>SENTIENT</h1>
+    <h1>DECENTRALIZED</h1>
+    <h1>EVOLUTION</h1>
+  </div>
+
+  <!-- Fixed Image -->
+  <div id="fixed-image"></div>
+
+  <!-- Main Site Content -->
+  <div id="main">
+    <div id="page1">
+            <nav>
+                <img src="./assets/images/logo.png" alt="Sentient Logo">
+                <div id="nav-part2">
+                    <h4><a href="https://www.sentient.xyz/" target="_blank">Platform</a></h4>
+                    <h4><a href="https://github.com/sentient-agi" target="_blank">Research</a></h4>
+                    <h4><a href="https://blog.sentient.xyz/" target="_blank">Blog</a></h4>
+                </div>
+                <h3>Menu</h3>
+            </nav>
+            <div id="center">
+                <div id="left">
+                    <h3>Sentient AI creates decentralized, end-to-end intelligence solutions for innovators worldwide.</h3>
+                </div>
+                <div id="right">
+                    <h1>SENTIENT AI<br>
+                        BUILDING <br>
+                        DECENTRALIZED </h1>
+                </div>
+
+            </div>
+            <div id="hero-shape">
+                <div id="hero-1"></div>
+                <div id="hero-2"></div>
+                <div id="hero-3"></div>
+            </div>
+            <video id="heroVideo" autoplay loop muted src="./assets/video/video.mp4" poster="https://placehold.co/1200x600/EFEAE3/000?text=Decentralized+AI+Video"></video>
+
+        </div>
+        <div id="page2">
+            <div id="moving-text">
+                <div class="con">
+                    <h1>DECENTRALIZED</h1>
+                    <div id="gola"></div>
+                    <h1>EVOLUTION</h1>
+                    <div id="gola"></div>
+                    <h1>SENTIENT</h1>
+                    <div id="gola"></div>
+                </div>
+                <div class="con">
+                    <h1>DECENTRALIZED</h1>
+                    <div id="gola"></div>
+                    <h1>EVOLUTION</h1>
+                    <div id="gola"></div>
+                    <h1>SENTIENT</h1>
+                    <div id="gola"></div>
+                </div>
+                <div class="con">
+                    <h1>DECENTRALIZED</h1>
+                    <div id="gola"></div>
+                    <h1>EVOLUTION</h1>
+                    <div id="gola"></div>
+                    <h1>SENTIENT</h1>
+                    <div id="gola"></div>
+                </div>
+            </div>
+            <div id="page2-bottom">
+                <div id="social-links">
+                    <a href="https://x.com/SentientAGI" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://discord.gg/sentientfoundation" target="_blank"><i class="fab fa-discord"></i></a>
+                </div>
+                <h1>We are pioneering open-source AI and decentralized intelligence platforms, creating tools for developers, researchers, and innovators.</h1>
+                <p>Our mission is to democratize AI, combining blockchain and machine learning to empower communities and reward contributions.</h1>
+                <div id="bottom-part2">
+                    <img src="./assets/images/ai.view.png" alt="AI View Image Placeholder">
+                    <p>At Sentient Labs, we design, develop, and deploy AI solutions that prioritize openness, community ownership, and collaboration. We partner with innovators to transform ideas into cutting-edge AI applications, ensuring technology benefits everyone.</p>
+                </div>
+            <div id="gooey">
+
+            </div>
+        </div>
+        <div id="page3">
+            <div id="elem-container">
+                <div id="elem1" class="elem" data-image="./assets/images/ima.png">
+                    <div class="overlay"></div>
+                    <h2>Sentient AI Platform</h2>
+                </div>
+                <div class="elem" data-image="./assets/images/Data.png">
+                    <div class="overlay"></div>
+                    <h2>Decentralized AI Network</h2>
+                </div>
+                <div class="elem" data-image="./assets/images/builder.png">
+                    <div class="overlay"></div>
+                    <h2>Builder Program Launch</h2>
+                </div>
+                <div class="elem" data-image="./assets/images/model.png">
+                    <div class="overlay"></div>
+                    <h2>Open-Source AI Models</h2>
+                </div>
+                <div class="elem" data-image="./assets/images/rewards.png">
+                    <div class="overlay"></div>
+                    <h2>Community Rewards System</h2>
+                </div>
+                <div class="elem" data-image="./assets/images/marketplace.png">
+                    <div class="overlay"></div>
+                    <h2>AI Agent Marketplace</h2>
+                </div>
+                <div class="elem" data-image="./assets/images/hub.png">
+                    <div class="overlay"></div>
+                    <h2>Sentient Labs Research Hub</h2>
+                </div>
+            </div>
+        </div>
+        <div id="page4">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><h1>Sentient AI (Open‑Source AGI Startup)</h1>
+                        <p>Sentient AI is an open-source, decentralized AGI platform that connects AI agents, models, and data sources into a collaborative ecosystem.</p>
+                        <p>It enables modular workflows, real-time agent collaboration, and rewards community contributions.</p>
+                        <p>Supported by major investors and valued at over USD 1.2 billion, the platform aims to decentralize AI development, empower innovators, and ensure ethical, aligned AI solutions.</p>
+                        <p></div>
+                    <div class="swiper-slide"><h1>Decentralized AI Network</h1>
+                        <p>The Decentralized AI Network powers Sentient AI by distributing agents, models, and data sources across multiple blockchains.</p>
+                        <p>This ensures transparency, resilience, and community-driven collaboration, enabling developers and innovators to build modular AI workflows without relying on centralized systems.</p>
+                        </p></div>
+                    <div class="swiper-slide"><h1>Builder Program Launch</h1>
+                        <p>The Builder Program Launch empowers developers, researchers, and innovators to create, deploy, and monetize AI agents on the Sentient AI Platform.</p>
+                        <p>It provides tools, SDKs, and resources to design modular AI workflows, integrate data sources, and collaborate with the community.</p>
+                        <p>Participants in the program can contribute to the ecosystem, gain recognition, and earn rewards, fostering an open, collaborative, and rapidly growing decentralized AI network.</p>                            
+                        </p></div>
+                    <div class="swiper-slide"><h1>Open-Source AI Models</h1>
+                        <p>Sentient AI provides fully open-source AI models that are transparent, auditable, and easily extensible.</p>
+                        <p>Developers and researchers can inspect, modify, and improve these models, enabling collaborative innovation across the ecosystem.</p>
+                        <p>By being open and community-driven, these models encourage sharing of knowledge, ensure alignment with ethical principles, and allow anyone to build modular AI solutions without relying on centralized systems.</p>
+                        </p></div>
+                    <div class="swiper-slide"><h1>Community Rewards System</h1>
+                        <p>The Community Rewards System incentivizes participants to contribute to the Sentient AI ecosystem by providing models, data, compute resources, or AI workflows.</p>
+                        <p>Contributors earn tokenized rewards for their efforts, fostering collaboration, innovation, and sustained growth.</p>
+                        <p>This system ensures that the community is recognized and fairly compensated, creating a vibrant, open, and decentralized environment where everyone can benefit from the platform’s success.</p>
+                        </p></div>
+                    <div class="swiper-slide"><h1>AI Agent Marketplace</h1>
+                        <p>The AI Agent Marketplace is a decentralized hub where developers and innovators can share, buy, and sell AI agents and workflows.</p>
+                        <p>It enables seamless exchange of AI tools, promoting collaboration and innovation across the Sentient AI ecosystem.</p>
+                        <p>By providing a transparent and secure platform, the marketplace allows creators to monetize their contributions while giving users access to a diverse library of AI solutions.</p>
+                        </p></div>
+                    <div class="swiper-slide"><h1>Sentient Labs Research Hub</h1>
+                        <p>The Sentient Labs Research Hub serves as a central repository for AI knowledge, research, and collaboration within the Sentient AI ecosystem.</p>
+                        <p>It provides resources, tools, and documentation for developers, researchers, and innovators to experiment, share findings, and contribute to the advancement of decentralized AI.</p>
+                        <p>By fostering an open and collaborative research environment, the hub accelerates innovation and ensures that the platform continues to evolve in alignment with community-driven goals.</p>
+                        </p></div>
+                    </div>
+
+            </div>
+        </div>
+        <div id="page5">
+
+        </div>
+        <div id="full-scr">
+            <div id="full-div1">
+                
+            </div>
+        </div>
+        <div id="footer">
+            <div id="footer-div">
+
+            </div>
+            <h1>Sentient AGI</h1>
+            <div id="footer-bottom">
+            </div>
+        </div>
+  </div>
+
+  <!-- External JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Custom Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>
